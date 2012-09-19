@@ -13,8 +13,8 @@
 
 (function($){
 	$.fn.template = function(string, obj){
-		return $(this).append(string.replace(/\$\{(.*?)\}/ig, function(match){
-			return obj[match.replace(/\$/g, "")];
+		return $(this).html(string.replace(/\${(.*?)\}/ig, function(match){
+			return obj[match.replace(/[\${\}]/g, "")];
 		}));
 	}
 })(jQuery);
